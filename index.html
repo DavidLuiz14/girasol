@@ -20,6 +20,21 @@
       position: relative;
     }
 
+    <div class="caption">This is for u, hope u like it, lov u❤️</div>
+
+.caption {
+  position: fixed;       /* Mantiene el div en la pantalla aunque se haga scroll */
+  bottom: 20px;          /* Distancia desde la parte inferior */
+  left: 50%;             /* Lo posiciona horizontalmente al 50% */
+  transform: translateX(-50%);  /* Ajusta para que quede realmente centrado */
+  font-size: xx-large;   /* Tu tamaño de fuente */
+  color: rgb(225, 45, 45); /* Tu color */
+  text-align: center;    /* Centra el texto dentro del div */
+  background: rgba(255, 255, 255, 0.2); /* Opcional: fondo semitransparente */
+  padding: 10px 20px;    /* Opcional: espacio dentro del div */
+  border-radius: 10px;   /* Opcional: bordes redondeados */
+  z-index: 999;          /* Para que esté sobre todo lo demás */
+}
     /* Sol */
     .sun {
       position: absolute;
@@ -218,3 +233,4 @@
   <div class="caption" style="font-size:xx-large; color: rgb(225, 45, 45);">This is for u, hope u like it, lov u❤️</div>
 </body>
 </html>
+
