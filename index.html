@@ -13,39 +13,40 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-    }
-
-    body {
       background: linear-gradient(to top, #a5d6a7 5%, #e1f5fe 60%, #81d4fa 100%);
       position: relative;
     }
 
-    <div class="caption">This is for u, hope u like it, lov u❤️</div>
+    /* Caption responsiva */
+    .caption {
+      position: fixed;
+      bottom: 2vh;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(16px, 3vw, 28px);
+      color: rgb(225, 45, 45);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5em 1em;
+      border-radius: 10px;
+      z-index: 3;
+      text-shadow: 0 2px 4px rgba(255,255,255,0.8);
+      font-weight: bold;
+    }
 
-.caption {
-  position: fixed;       /* Mantiene el div en la pantalla aunque se haga scroll */
-  bottom: 20px;          /* Distancia desde la parte inferior */
-  left: 50%;             /* Lo posiciona horizontalmente al 50% */
-  transform: translateX(-50%);  /* Ajusta para que quede realmente centrado */
-  font-size: xx-large;   /* Tu tamaño de fuente */
-  color: rgb(225, 45, 45); /* Tu color */
-  text-align: center;    /* Centra el texto dentro del div */
-  background: rgba(255, 255, 255, 0.2); /* Opcional: fondo semitransparente */
-  padding: 10px 20px;    /* Opcional: espacio dentro del div */
-  border-radius: 10px;   /* Opcional: bordes redondeados */
-  z-index: 999;          /* Para que esté sobre todo lo demás */
-}
     /* Sol */
     .sun {
       position: absolute;
-      top: 40px;
-      right: 80px;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle at center, #fff59d 0%, #fdd835 40%, #fbc02d 70%);
+      top: 5vh;
+      right: 5vw;
+      width: 15vw;
+      max-width: 120px;
+      height: auto;
       border-radius: 50%;
+      background: radial-gradient(circle at center, #fff59d 0%, #fdd835 40%, #fbc02d 70%);
       box-shadow: 0 0 50px rgba(253, 216, 53, 0.7);
       animation: pulse 6s ease-in-out infinite;
+      z-index: 1;
     }
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
@@ -58,9 +59,10 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 180px;
+      height: 25vh;
       background: linear-gradient(to top, #2e7d32, #66bb6a 60%);
       clip-path: polygon(0 100%, 0 50%, 10% 70%, 20% 50%, 30% 70%, 40% 50%, 50% 70%, 60% 50%, 70% 70%, 80% 50%, 90% 70%, 100% 50%, 100% 100%);
+      z-index: 1;
     }
 
     /* Nubes */
@@ -77,26 +79,28 @@
       background: #fff;
       border-radius: 50%;
     }
-    .cloud1 { width: 120px; height: 60px; top: 80px; left: -150px; animation-duration: 70s; }
-    .cloud1::before { width: 80px; height: 80px; left: -40px; top: -20px; }
-    .cloud1::after { width: 100px; height: 100px; left: 60px; top: -40px; }
 
-    .cloud2 { width: 180px; height: 90px; top: 180px; left: -200px; animation-duration: 90s; }
-    .cloud2::before { width: 120px; height: 120px; left: -50px; top: -30px; }
-    .cloud2::after { width: 140px; height: 140px; left: 80px; top: -50px; }
+    .cloud1 { width: 20vw; max-width: 120px; height: 10vw; max-height: 60px; top: 8vh; left: -20vw; animation-duration: 70s; }
+    .cloud1::before { width: 13vw; max-width: 80px; height: 13vw; max-height: 80px; left: -4vw; top: -2vw; }
+    .cloud1::after { width: 16vw; max-width: 100px; height: 16vw; max-height: 100px; left: 8vw; top: -4vw; }
 
-    .cloud3 { width: 100px; height: 50px; top: 130px; left: -120px; animation-duration: 50s; }
-    .cloud3::before { width: 70px; height: 70px; left: -30px; top: -20px; }
-    .cloud3::after { width: 80px; height: 80px; left: 50px; top: -30px; }
+    .cloud2 { width: 30vw; max-width: 180px; height: 15vw; max-height: 90px; top: 18vh; left: -30vw; animation-duration: 90s; }
+    .cloud2::before { width: 20vw; max-width: 120px; height: 20vw; max-height: 120px; left: -5vw; top: -3vw; }
+    .cloud2::after { width: 23vw; max-width: 140px; height: 23vw; max-height: 140px; left: 8vw; top: -5vw; }
+
+    .cloud3 { width: 16vw; max-width: 100px; height: 8vw; max-height: 50px; top: 13vh; left: -16vw; animation-duration: 50s; }
+    .cloud3::before { width: 11vw; max-width: 70px; height: 11vw; max-height: 70px; left: -4vw; top: -3vw; }
+    .cloud3::after { width: 12vw; max-width: 80px; height: 12vw; max-height: 80px; left: 6vw; top: -4vw; }
 
     @keyframes float {
       0% { transform: translateX(0); }
       100% { transform: translateX(140vw); }
     }
 
+    /* Contenedor girasol responsivo */
     .container {
-      width: min(880px, 95vw);
-      max-width: 880px;
+      width: 90%;
+      max-width: 400px;
       aspect-ratio: 3 / 4;
       display: grid;
       place-items: center;
@@ -120,33 +124,32 @@
       animation: sway 6s ease-in-out infinite;
     }
 
-    .caption {
-      position: absolute;
-      bottom: 24px;
-      font-size: 22px;
-      color: #4e342e;
-      text-shadow: 0 2px 4px rgba(255,255,255,0.8);
-      pointer-events: none;
-      font-weight: bold;
-      z-index: 3;
+    /* Media Queries opcionales */
+    @media (max-width: 600px) {
+      .container { max-width: 300px; }
+      .caption { font-size: clamp(14px, 4vw, 22px); bottom: 1.5vh; padding: 0.3em 0.8em; }
+    }
+    @media (min-width: 601px) and (max-width: 900px) {
+      .container { max-width: 350px; }
     }
   </style>
 </head>
 <body>
   <!-- Sol -->
   <!-- <div class="sun"></div> -->
+
   <!-- Nubes -->
   <div class="cloud cloud1"></div>
   <div class="cloud cloud2"></div>
   <div class="cloud cloud3"></div>
+
   <!-- Césped -->
   <div class="grass"></div>
 
   <!-- Girasol -->
   <div class="container">
-    <!-- Aquí insertamos el mismo SVG del girasol que ya te funcionó -->
-    <!-- 👇 Solo copié el mismo girasol de antes (idéntico) -->
     <svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+      <!-- SVG girasol idéntico al que ya tienes -->
       <defs>
         <linearGradient id="petalGrad" x1="0" x2="1">
           <stop offset="0" stop-color="#fff176"/>
@@ -167,12 +170,9 @@
           <circle cx="6" cy="14" r="1.5" fill="#452a22" />
         </pattern>
       </defs>
-
-      <!-- Girasol -->
       <g id="sunflower">
-        <!-- pétalos grandes -->
+        <!-- Pétalos grandes -->
         <g>
-          <!-- 16 pétalos -->
           <ellipse cx="300" cy="120" rx="26" ry="100" fill="url(#petalGrad)" />
           <ellipse cx="300" cy="120" rx="26" ry="100" fill="url(#petalGrad)" transform="rotate(22.5 300 250)"/>
           <ellipse cx="300" cy="120" rx="26" ry="100" fill="url(#petalGrad)" transform="rotate(45 300 250)"/>
@@ -190,8 +190,7 @@
           <ellipse cx="300" cy="120" rx="26" ry="100" fill="url(#petalGrad)" transform="rotate(315 300 250)"/>
           <ellipse cx="300" cy="120" rx="26" ry="100" fill="url(#petalGrad)" transform="rotate(337.5 300 250)"/>
         </g>
-
-        <!-- pétalos interiores -->
+        <!-- Centro y tallo se mantienen igual -->
         <g opacity="0.95">
           <ellipse cx="300" cy="130" rx="18" ry="70" fill="url(#petalGrad)"/>
           <ellipse cx="300" cy="130" rx="18" ry="70" fill="url(#petalGrad)" transform="rotate(18 300 250)"/>
@@ -215,12 +214,10 @@
           <ellipse cx="300" cy="130" rx="18" ry="70" fill="url(#petalGrad)" transform="rotate(342 300 250)"/>
         </g>
 
-        <!-- centro -->
         <circle cx="300" cy="250" r="78" fill="url(#centerGrad)" />
         <circle cx="300" cy="250" r="72" fill="url(#seeds)" opacity="0.95"/>
         <circle cx="300" cy="240" r="22" fill="#6b4d3f" opacity="0.18"/>
 
-        <!-- tallo -->
         <rect x="290" y="320" width="20" height="380" rx="10" fill="url(#stemGrad)"/>
         <path d="M270 420 C230 390, 240 490, 280 470 C260 450, 270 430, 270 420 Z"
               fill="url(#stemGrad)" transform="rotate(-14 270 440)"/>
@@ -230,8 +227,6 @@
     </svg>
   </div>
 
-  <div class="caption" style="font-size:xx-large; color: rgb(225, 45, 45);">for u hope u like it, lov u❤️</div>
+  <div class="caption">for u hope u like it, lov u❤️</div>
 </body>
 </html>
-
-
